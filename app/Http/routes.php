@@ -10,7 +10,27 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as'   => 'home'
+]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('login', [
+    'uses' => 'Auth\AuthController@getLogin',
+    'as'   => 'login'
+]);
+
+Route::post('login', 'Auth\AuthController@postLogin');
+
+Route::get('logout', [
+    'uses' => 'Auth\AuthController@getLogout',
+    'as'   => 'logout'
+]);
+
+Route::get('pedidos', [
+    'uses' => 'Auth\AuthController@getPedidos',
+    'as'   => 'pedidos'
+]);
+
+Route::post('pedidos', 'Auth\AuthController@postPedidos');
+
