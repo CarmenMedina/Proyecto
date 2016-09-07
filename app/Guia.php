@@ -1,26 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Carmen Botello
- * Date: 06/09/2016
- * Time: 04:16 PM
- */
-
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
+use App\Pedido;
 
 class Guia extends Model
 {
     protected $table = 'guia';
+    protected $fillable = ['numeroGuia', 'urlRastreo', 'urlEtiqueta'];
 
-    /**
- * @param string $primaryKey
- */
-    public function setPrimaryKey($primaryKey)
+    public function pedido()
     {
-        $this->primaryKey = $primaryKey;
-
+        return $this->belongsTo(Pedido::class);
     }
 }

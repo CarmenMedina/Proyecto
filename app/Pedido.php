@@ -1,19 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Carmen Botello
- * Date: 06/09/2016
- * Time: 04:15 PM
- */
-
 namespace App;
 
-
 use Illuminate\Database\Eloquent\Model;
+use App\Guia;
 
 class Pedido extends Model
 {
     protected $table = 'pedido';
 
+    protected $fillable = ['idPedido', 'idFactura', 'estado'];
 
+    public function guia()
+    {
+        return $this->hasOne(Guia::class);
+    }
 }

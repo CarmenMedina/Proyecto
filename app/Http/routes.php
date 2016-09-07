@@ -11,11 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'HomeController@index',
+    'as'   => 'home'
+]);
 
+Route::get('order', [
+    'uses' => 'Auth\OrderController@index',
+    'as'   => 'order'
+]);
 
-Route::get('actualizar', function (){
+Route::post('order', [
+    'uses' => 'Auth\OrderController@store',
+    'as'   => 'order'
+]);
 
-});
+Route::put('order/{order}', [
+    'uses' => 'OrderController@update',
+    'as'   => 'order'
+]);
