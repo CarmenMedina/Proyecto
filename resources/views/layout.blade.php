@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 </head>
+
 <body>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -23,24 +24,17 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="/">@lang('auth.home_title')</a></li>
-                @if(Auth::check())
-                    <li><a href="{{url('pedidos')}}">Pedidos</a></li>
-                @endif
+                <li><a href="/">Principal</a></li>
+                    <li><a href="{{url('order')}}">Pedidos</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{route('login')}}">@lang('auth.login_button')</a></li>
-
-                @else
+                    <li><a href="{{route('login')}}">Login</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::Usuario()->nombre }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{route('logout')}}">Logout</a></li>
                         </ul>
                     </li>
-                @endif
             </ul>
         </div>
     </div>
@@ -52,5 +46,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 @yield('scripts')
+
 </body>
 </html>

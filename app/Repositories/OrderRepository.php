@@ -7,7 +7,7 @@ use App\Guia;
 
 class OrderRepository
 {
-    public function forOrder(Pedido $order)
+    public function forOrder()
     {
         return $order = DB::table('pedido')
             ->join('guia', function ($join) {

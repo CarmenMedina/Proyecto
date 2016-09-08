@@ -22,16 +22,16 @@ class OrderController extends Controller
      *
      * @return void
      */
-    public function __construct(OrderRepository $order)
+   /* public function __construct(OrderRepository $order)
     {
        // $this->middleware('auth');
         $this->order = $order;
-    }
+    }*/
 
     public function index(Request $request)
     {
         return view('auth.order', [
-            'order' => $this->order->forOrder($request->pedido()),
+            'order' => $this->order->forOrder($request->query()),
         ]);
     }
 

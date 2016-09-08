@@ -16,6 +16,18 @@ Route::get('/', [
     'as'   => 'home'
 ]);
 
+Route::get('login', [
+    'uses' => 'Auth\AuthController@getLogin',
+    'as'   => 'login'
+]);
+
+Route::post('login', 'Auth\AuthController@postLogin');
+
+Route::get('logout', [
+    'uses' => 'Auth\AuthController@getLogout',
+    'as'   => 'logout'
+]);
+
 Route::get('order', [
     'uses' => 'Auth\OrderController@index',
     'as'   => 'order'
